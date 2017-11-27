@@ -38,7 +38,69 @@ function renderLoop()
   context.clearRect( -canvas.width/2, -canvas.height/2, canvas.width, canvas.height);//clear screen x, y, width, height
 }
 renderLoop();
+function makeRect(width,height,depth)
+{
+	var newObj={};
+	var hw=width/2;
+	var hh=height/2;
+	var hd=depth/2;
+	newObj.vertices=[  [-hw,hh,hd],[hw,hh,hd],[hw,-hh,hd],//first triangle
+          [-hw,hh,hd],[-hw,-hh,hd],[hw,-hh,hd],//2 triangles make front side
+          [-hw,hh,-hd],[-hw,hh,hd],[-hw,-hh,-hd], //left side
+          [-hw,hh,hd],[-hw,-hh,hd],[-hw,-hh,-hd],
+          [hw,hh,-hd],[hw,hh,hd],[hw,-hh,-hd], //right side
+          [hw,hh,hd],[hw,-hh,hd],[hw,-hh,-hd],
+          [-hw,hh,-hd],[hw,hh,-hd],[hw,-hh,-hd],//back
+          [-hw,hh,-hd],[-hw,-hh,-hd],[hw,-hh,-hd],
+          [-hw,hh,-hd],[hw,hh,-hd],[hw,hh,hd],//top
+          [-hw,hh,-hd],[-hw,hh,hd],[hw,hh,hd],
+          [-hw,-hh,-hd],[hw,-hh,-hd],[hw,-hh,hd],//bottom
+          [-hw,-hh,-hd],[-hw,-hh,hd],[hw,-hh,hd]
+	];
+	
+	return newObj;
+}
 
+var cube=makeRect(canvas.width/5,canvas.width/5,canvas.width/5);
+cube.color="purple";
+var xAxis=makeRect(440,10,10);
+xAxis.color="green";
+var yAxis=makeRect(10,440,10);
+yAxis.color="red";
+var zAxis=makeRect(10,10,440);
+zAxis.color="blue";
+
+	  renderObj(cube);
+  renderObj(xAxis);
+  renderObj(yAxis);
+  renderObj(zAxis);
+	
+function renderObj(obj)//renders an object as a series of triangles
+{
+    
+    context.lineWidth = 1;
+    context.strokeStyle = obj.color;
+    
+    
+    for(var i=0 ; i<obj.vertices.length ; i+=3)
+    {
+        for (var k=0;k<3;k++)
+        {
+          var vertexFrom=obj.vertices[i+k];
+          var temp=i+k+1;
+          if(k==2) 
+              temp=i;
+              
+          var vertexTo=obj.vertices[temp];		
+          context.beginPath();
+          context.moveTo(vertexFrom[0], -vertexFrom[1]);
+          context.lineTo(vertexTo[0], -vertexTo[1]);
+          context.stroke();
+        }
+    }
+}
+
+	
 
 </script>
 </body>
