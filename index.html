@@ -50,6 +50,9 @@ body {
 <div class="text-wrapper">
   <span class="text">Panning image demo with device gyro</span>
   <span class="output">gamma: x / beta: x</span>
+    alpha:<span id="alpha"></span><br>
+    beta:<span id="beta"></span><br>
+    gamma:<span id="gamma"></span><br>
 </div>
 <div class="wrapper"></div>
 	
@@ -76,8 +79,14 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
   if ( window.DeviceMotionEvent ) { 
     window.ondeviceorientation = function(event) {
+	alpha = event.alpha;
       beta = event.beta;
       gamma = event.gamma;
+	document.getElementById("alpha").innerHTML=alpha;
+	document.getElementById("beta").innerHTML=beta;
+	document.getElementById("gamma").innerHTML =gamma;
+	    
+	    
       setTimeout(function(){
         normalizeData(gamma, beta)
       }, 50)
