@@ -39,7 +39,7 @@ if (window.DeviceOrientationEvent)
 {
     window.addEventListener("deviceorientation", function () 
     {
-        processGyro(event.alpha, event.beta, event.gamma);  
+       // processGyro(event.alpha, event.beta, event.gamma);  
     }, true);
 } 
 
@@ -57,7 +57,12 @@ var context = canvas.getContext("2d");
 context.canvas.width  = window.innerWidth;//resize canvas to whatever window dimensions are
 context.canvas.height = window.innerHeight;
 context.translate(canvas.width / 2, canvas.height / 2); //put 0,0,0 origin at center of screen instead of upper left corner
-
+var context = canvas.getContext("2d");
+context.beginPath();
+context.arc(95,50,40,0,2*Math.PI);
+context.stroke();
+	
+	
 //render loop
 function renderLoop() 
 {
