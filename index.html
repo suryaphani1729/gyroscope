@@ -88,6 +88,26 @@ body {
 <script  src="https://code.jquery.com/jquery-3.2.1.js"  integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="  crossorigin="anonymous"></script>
 <script>
 
+	
+	var canvas = document.getElementById("myCanvas");
+var context = canvas.getContext("2d");
+context.canvas.width  = window.innerWidth;//resize canvas to whatever window dimensions are
+context.canvas.height = window.innerHeight;
+context.translate(canvas.width / 2, canvas.height / 2); //put 0,0,0 origin at center of screen instead of upper left corner
+
+//render loop
+function renderLoop() 
+{
+  requestAnimationFrame( renderLoop );//better than set interval as it pauses when browser isn’t active
+  context.clearRect( -canvas.width/2, -canvas.height/2, canvas.width, canvas.height);//clear screen x, y, width, height
+}
+renderLoop();
+
+	
+	
+	
+	
+	
 document.addEventListener("DOMContentLoaded", function(event) {
   var output = $('.output'),
       bgImg = $('.wrapper'),
