@@ -64,7 +64,7 @@ function handleOrientation(event) {
   ball.style.left = (maxY*y/180 - 10) + "px";
 }
 function handleMotion(ev) {
-        var acc = ev.acceleration;//IncludingGravity
+        var acc = ev.accelerationIncludingGravity;
        
 	setTimeout(function(){
         accelerationSet(acc)
@@ -90,7 +90,7 @@ function handleMotion(ev) {
   ball.style.left = xVal  + "px";
 	
 	document.getElementById("alpha").innerHTML=ball.style.top;
-		
+	document.getElementById("beta").innerHTML=ball.style.left;	
 	}
 	
 //window.addEventListener('deviceorientation', handleOrientation);	
