@@ -68,6 +68,10 @@ function handleMotion(ev) {
        
  		output.innerHTML  = "beta : " + acc.x + "\n";
  		 output.innerHTML += "gamma: " + acc.y + "\n";
+	
+	ball.style.top  = ball.style.top+ (acc.x*2)  + "px";
+  ball.style.left = ball.style.left+(acc.y*2) + "px";
+	
 }
 	
 	
