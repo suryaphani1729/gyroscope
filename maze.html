@@ -35,7 +35,7 @@ Your browser does not support the HTML5 canvas tag.</canvas>
 <script>
 	
 	
-	var ball   = document.querySelector('.ball');
+var ball   = document.querySelector('.ball');
 var garden = document.querySelector('.garden');
 var output = document.querySelector('.output');
 
@@ -74,9 +74,9 @@ function handleMotion(ev) {
 
 	function accelerationSet(acc){
 		
-		output.innerHTML  = "beta : " + acc.x + "\n";
+		output.innerHTML  = "beta : " + parseInt(acc.x) + "\n";
  	
-	 output.innerHTML += "gamma: " + acc.y + "\n";
+	 output.innerHTML += "gamma: " + parseInt(acc.y) + "\n";
 	var yVal = (parseInt(ball.style.top)+ (acc.y));
 	var xVal = (parseInt(ball.style.left)+(acc.x));
 	
@@ -94,7 +94,7 @@ function handleMotion(ev) {
 }
 	
 //window.addEventListener('deviceorientation', handleOrientation);	
-window.addEventListener('devicemotion', handleMotion,false);		
+window.addEventListener('devicemotion', handleMotion);		
 	
 	
 	
