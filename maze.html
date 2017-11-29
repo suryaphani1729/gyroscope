@@ -66,7 +66,15 @@ function handleOrientation(event) {
 function handleMotion(ev) {
         var acc = ev.accelerationIncludingGravity;
        
- 		output.innerHTML  = "beta : " + acc.x + "\n";
+	setTimeout(function(){
+        accelerationSet(acc)
+      }, 100)
+ 		
+}
+
+	function accelerationSet(acc){
+		
+		output.innerHTML  = "beta : " + acc.x + "\n";
  	
 	 output.innerHTML += "gamma: " + acc.y + "\n";
 	var yVal = (parseInt(ball.style.top)+ (acc.y));
@@ -82,8 +90,8 @@ function handleMotion(ev) {
   ball.style.left = xVal  + "px";
 	
 	document.getElementById("alpha").innerHTML=ball.style.top;
-}
-	
+		
+	}
 	
 window.addEventListener('deviceorientation', handleOrientation);	
 window.addEventListener('devicemotion', handleMotion,false);		
