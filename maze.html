@@ -69,8 +69,8 @@ function handleMotion(ev) {
  		output.innerHTML  = "beta : " + acc.x + "\n";
  		 output.innerHTML += "gamma: " + acc.y + "\n";
 	
-	ball.style.top  = (parseInt(ball.style.top)+ (acc.x*2))  + "px";
-  ball.style.left =  (parseInt(ball.style.left)+(acc.y*2)) + "px";
+	ball.style.top  = (parseInt(ball.style.top)+ (acc.y*2))  + "px";
+  ball.style.left =  (parseInt(ball.style.left)+(acc.x*2)) + "px";
 	
 	document.getElementById("alpha").innerHTML=ball.style.top;
 }
