@@ -64,7 +64,7 @@ function handleOrientation(event) {
   ball.style.left = (maxY*y/180 - 10) + "px";
 }
 function handleMotion(ev) {
-        var acc = ev.accelerationIncludingGravity;
+        var acc = ev.acceleration;//IncludingGravity
        
 	setTimeout(function(){
         accelerationSet(acc)
