@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <body>
-  <span id="alpha"></span>/<span id="beta"></span>/<span id="gamma"></span>
+	<span id="alpha"></span>/<span id="beta"></span>/<span id="gamma"></span>/<span id="test"></span>
 <canvas id="myCanvas" width="800" height="1000" style="border:1px solid #d3d3d3;">
 Your browser does not support the HTML5 canvas tag.</canvas>
 
@@ -20,7 +20,7 @@ if ( window.DeviceMotionEvent ) {
 	document.getElementById("alpha").innerHTML=Math.round(alpha);
 	document.getElementById("beta").innerHTML=Math.round(beta);
 	document.getElementById("gamma").innerHTML =Math.round(gamma);
-	    
+	   
 	    
       setTimeout(function(){
         normalizeData(gamma, beta)
@@ -52,7 +52,7 @@ reDraw();
     //output.text('gamma: ' + g + ' / beta: ' + b);
     //bgImg.css('transform', 'rotateY('+rotY+'deg) rotateX('+rotX+'deg)');
 	  
-	  
+	 document.getElementById("test").innerHTML =rotX+"";  
 	  
     	pixes.X =   rotX;
 	  pixes.Y = rotY;
