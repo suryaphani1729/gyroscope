@@ -87,13 +87,13 @@ function handleMotion(ev) {
 		xVal = 0;
 	
 	ball.style.top  = yVal  + "px";
-  ball.style.left = xVal  + "px";
+        ball.style.left = xVal  + "px";
 	
 	document.getElementById("alpha").innerHTML=ball.style.top;
 	document.getElementById("beta").innerHTML=ball.style.left;	
-	}
+}
 	
-//window.addEventListener('deviceorientation', handleOrientation);	
+window.addEventListener('deviceorientation', handleOrientation);	
 window.addEventListener('devicemotion', handleMotion,false);		
 	
 	
