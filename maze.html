@@ -29,9 +29,15 @@ if ( window.DeviceMotionEvent ) {
   function reDraw(){
  var c = document.getElementById("myCanvas");
 var ctx = c.getContext("2d");
-ctx.beginPath();
-ctx.arc(pixes.X+50,pixes.Y+50,40,0,2*Math.PI);
-ctx.stroke(); 
+//ctx.beginPath();
+//ctx.arc(pixes.X+50,pixes.Y+50,40,0,2*Math.PI);
+//ctx.stroke(); 
+	  
+ctx.clearRect(0, 0, c.width, c.height); //clear canvas
+  ctx.beginPath();  //draw the object c
+  ctx.arc(c.x, c.y, c.r, 0, Math.PI*2); 
+  ctx.closePath();
+  ctx.fill();
 	  
   }
 reDraw();	 
@@ -44,6 +50,9 @@ reDraw();
     rotX += (b - rotX) / 5;
     output.text('gamma: ' + g + ' / beta: ' + b);
     //bgImg.css('transform', 'rotateY('+rotY+'deg) rotateX('+rotX+'deg)');
+	  
+	  
+	  
     	pixes.X =   rotX;
 	  rotX.Y = rotY;
 	  reDraw();
