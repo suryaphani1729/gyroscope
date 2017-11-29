@@ -1,17 +1,16 @@
 <!DOCTYPE html>
 <html>
 <body>
-  <span id="alpha"></span><span id="beta"></span><span id="gamma"></span>
+  <span id="alpha"></span>/<span id="beta"></span>/<span id="gamma"></span>
 <canvas id="myCanvas" width="800" height="1000" style="border:1px solid #d3d3d3;">
 Your browser does not support the HTML5 canvas tag.</canvas>
 
 <script>
+var pixes = {
+   X:0,
+   Y:0	
+};
 
-var c = document.getElementById("myCanvas");
-var ctx = c.getContext("2d");
-ctx.beginPath();
-ctx.arc(95,50,40,0,2*Math.PI);
-ctx.stroke();
 if ( window.DeviceMotionEvent ) { 
     window.ondeviceorientation = function(event) {
 	alpha = event.alpha;
@@ -27,7 +26,30 @@ if ( window.DeviceMotionEvent ) {
       }, 50)
     }  
   }
-  
+  function reDraw(){
+ var c = document.getElementById("myCanvas");
+var ctx = c.getContext("2d");
+ctx.beginPath();
+ctx.arc(pixes.X+50,pixes.Y+50,40,0,2*Math.PI);
+ctx.stroke(); 
+	  
+  }
+reDraw();	 
+  function normalizeData(_g, _b){
+    
+    b = Math.round(_b);
+    g = Math.round(_g);
+    
+    rotY += (g - rotY) / 5;
+    rotX += (b - rotX) / 5;
+    output.text('gamma: ' + g + ' / beta: ' + b);
+    //bgImg.css('transform', 'rotateY('+rotY+'deg) rotateX('+rotX+'deg)');
+    	pixes.X =   rotX;
+	  rotX.Y = rotY;
+	  reDraw();
+	  
+  }
+	
   
 </script> 
 
