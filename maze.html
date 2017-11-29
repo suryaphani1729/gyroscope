@@ -47,8 +47,8 @@ reDraw();
     b = Math.round(_b);
     g = Math.round(_g);
     
-    rotY += (g - rotY);// / 5;
-    rotX += (b - rotX);// / 5;
+    rotY += (g*5 - rotY);// / 5;
+    rotX += (b*5 - rotX);// / 5;
     //output.text('gamma: ' + g + ' / beta: ' + b);
     //bgImg.css('transform', 'rotateY('+rotY+'deg) rotateX('+rotX+'deg)');
 	  
